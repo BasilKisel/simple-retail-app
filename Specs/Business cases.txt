@@ -1,0 +1,120 @@
+Do endlessly:
+1. System shows greeting.
+2. If client wants to register, then he provides a full name, email and password.
+a. System looks up in DB for client's email.
+b. If email had been registered before:
+i. System notifies about it.
+ii. System starts next iteration.
+c. System saves client's info.
+d. System notifies about success.
+e. System returns session's token.
+3. If client wants to signs in, then he provides email and password.
+a. System selects info by clients email and password.
+b. If no info selected, then
+i. System notifies about authentication's problem.
+ii. System starts next iteration.
+c. System remembers client's info (with cookies, for example).
+d. System returns session's token.
+4. If client wants to see products, then he provides a filter.
+a. System matches products with filter.
+b. System calculates matched product's quantities.
+c. System shows matched goods and it's quantities.
+5. If client wants to add product to basket, then he provides a product, quantity and session's token.
+a. System checks client's token.
+b. If check's been fallen, then:
+i. System notifies about registration.
+ii. System starts next iteration.
+c. System saves chosen goods and it's quantity in client's basket.
+6. If client wants to remove product from basket, then he provides a product and session's token.
+a. System checks client's token.
+b. If check's been fallen, then:
+i. System notifies about registration.
+ii. System starts next iteration.
+c. System removes chosen product from client's basket.
+7. If client wants to change product's quantity in basket, then he provides a product, new quantity and session's token.
+a. System checks client's token.
+b. If check's been fallen, then:
+i. System notifies about registration.
+ii. System starts next iteration.
+c. System updates product's quantity.
+8. If client wants to make an order, then he provides session's token.
+a. System checks session's token.
+b. If check's been fallen, then:
+i. System notifies about registration.
+ii. System starts next iteration.
+c. System try to reserve products.
+d. If no one product was reserved, then:
+i. System notifies about reservation fail.
+ii. System starts next iteration.
+e. System calculates prices.
+f. System shows reserved products, quantities, prices and a difference from wanted order's lines.
+g. System returns order's token.
+9. If clients wants to see delivery services, then he provides destination's district:
+a. System searches for appropriate delivery services.
+b. System calculates delivery prices.
+c. System shows found services and it's prices.
+10. If client wants to add a delivery to order, then he provides session's token, order's token, destination's district and delivery service.
+a. System checks session's token.
+b. If check's been fallen, then:
+i. System notifies about registration.
+ii. System starts next iteration.
+c. System checks order's token.
+d. If check's been fallen, then:
+i. System notifies about  wrong order.
+ii. System starts next iteration.
+e. System checks if delivery service works in destination's delivery.
+f. If check's been fallen, then:
+i. System notifies about wrong delivery service.
+ii. System starts next iteration.
+g. System adds a delivery to order.
+11. If client wants to list order's details, then he provides session's token and client's token.
+a. System checks session's token.
+b. If check's been fallen, then:
+i. System notifies about registration.
+ii. System starts next iteration.
+c. System checks order's token.
+d. If check's been fallen, then:
+i. System notifies about  wrong order.
+ii. System starts next iteration.
+e. System calculates product's prices.
+f. System calculates delivery price.
+g. System shows products, prices, destination's district, delivery service and delivery price.
+12. If client wants to list all orders, then he provides session's token.
+a. System checks session's token.
+b. If check's been fallen, then:
+i. System notifies about wrong order.
+ii. System starts next iteration.
+c. System search for client's orders.
+d. System show orders and it's statuses.
+13. If client wants to register payment for order, then he provides client's token, order's token, payment's data.
+a. System checks session's token.
+b. If check's been fallen, then:
+i. System notifies about registration.
+ii. System starts next iteration.
+c. System checks order's token.
+d. If check's been fallen, then:
+i. System notifies about wrong order.
+ii. System starts next iteration.
+e. System checks payment.
+f. If check's been fallen, then:
+i. System notifies what payment wasn't approved.
+ii. System starts next iteration.
+g. System saves payment information.
+h. System changes order's status.
+i. System launches delivery process.
+j. System notifies about success.
+ 
+How system checks client's token:
+1. If session's token isn't in active session tables, then return a fail.
+2. If session's token is expired, then return a fail.
+3. Else return a success.
+ 
+How system checks order's token:
+1. If order's token isn't in reserved order's tables, then fail.
+2. If order's token is expired, then fail.
+3. Else success.
+ 
+How system performs delivery process:
+1. System transfers products from order to delivery zone.
+2. System recalculate product's quantity.
+

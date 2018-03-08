@@ -1,0 +1,31 @@
+Tech specs
+Servers:
+* GoodSql2016,
+* GoodWinServerDC.
+Databases:
+* Applications (GoodSql2016\Gateway),
+* Sales (GoodWinServerDC\Business),
+* Warehouses (GoodWinServerDC\Warehousing),
+* Agents (GoodWinServerDC\Business).
+
+Stored procedures
+* GoodSql2016\Gateway.Applications.Website.sp_RegisterClient
+* GoodWinServerDC\Business.Sales.Clients.sp_CreateNewClient
+* GoodSql2016\Gateway.Applications.Website.sp_SignClientIn
+* GoodWinServerDC\Business.Sales.Clients.sp_GetClientsInfo
+* GoodSql2016\Gateway.Applications.Website.sp_GetGoodsByFilter
+* GoodWinServerDC\Business.Sales.Clients.sp_CheckClientsInfo
+* GoodWinServerDC\Warehousing.Warehouses.sp_GetGoodsByFilter
+* GoodSql2016\Gateway.Applications.Website.sp_AddItemsToClientsBasket
+* GoodWinServerDC\Business.Sales.Clients.sp_CheckClientsInfo
+* GoodWinServerDC\Bussiness.Sales.Orders.sp_AddItemsToClientsBasket
+* GoodSql2016\Gateway.Applications.Website.sp_RemoveItemsFromClientsBasket
+* GoodWinServerDC\Business.Sales.Clients.sp_CheckClientsInfo
+* GoodWinServerDC\Bussiness.Sales.Orders.sp_RemoveItemsFromClientsBasket
+* GoodSql2016\Gateway.Applications.Website.sp_ChangeQntyInClientsBasket
+* GoodWinServerDC\Business.Sales.Clients.sp_CheckClientsInfo
+* GoodWinServerDC\Bussiness.Sales.Orders.sp_ChangeQntyInClientsBasket
+* GoodSql2016\Gateway.Applications.Website.sp_GetOrdersReceipt
+* GoodWinServerDC\Business.Sales.Clients.sp_CheckClientsInfo
+* GoodWinServerDC\Bussiness.Sales.Orders.sp_GetOrdersReceipt
+

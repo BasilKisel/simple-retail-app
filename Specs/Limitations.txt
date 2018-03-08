@@ -1,0 +1,11 @@
+Limitations
+* Only 1 warehouse.
+* Simplified entities.
+* No employee's interface.
+* Obscure product's filtering.
+* Haven't real payment processing.
+* Haven't real delivery processing.
+* Reservation stays forever.
+* All prices are fixed.
+* All orders stuck in delivery state.
+
